@@ -1,0 +1,12 @@
+@media (max-width: 1000px) {
+  .grid {
+    width: 100%;
+  }
+  .cont {
+    flex-direction: column;
+  }
+  .tools {
+    height: 50%;
+    width: 100%;
+  }
+}

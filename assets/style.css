@@ -4,41 +4,6 @@
   padding: 0;
   /* font-family: Minecraft; */
 }
-/* .cont {
-  display: flex;
-  border: solid 1px black;
-  width: 100vw;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-} */
-/* .grid {
-  width: 100vw;
-  height: 90vh;
-  display: grid;
-  grid-template-rows: repeat(30, 1fr);
-  grid-template-columns: repeat(30, 1fr);
-} */
-.inven {
-  background-color: black;
-  display: flex;
-  height: 100%;
-  width: 20vw;
-  flex-direction: column;
-  text-align: center;
-}
-/* .cell {
-  background-color: #87ceeb;
-  border: solid 1px black;
-  min-width: 5vmin;
-  min-height: 5vmin;
-  max-width: 13vmin;
-  max-height: 10vmin;
-} */
-.cell:hover {
-  border: 1px solid white;
-}
 .splash {
   width: 100vw;
   height: 100vh;
@@ -48,42 +13,6 @@
   align-items: center;
   font-size: 80px;
   flex-direction: column;
-}
-/* .tools {
-  margin: auto;
-  width: 200px;
-  height: 200px;
-  border: solid 1px white;
-} */
-/* .tool:nth-child(1) {
-  background: url(block/tool_goldpick.jpg) center center no-repeat;
-}
-.tool:nth-child(2) {
-  background: url(block/tool_axe.jpg) center center no-repeat;
-}
-.tool:nth-child(3) {
-  background: url(block/tool_shovel.jpg) center center no-repeat;
-} */
-/* div[data-type="dirt"] {
-  background: url(block/img_dirt.jpg) center center no-repeat;
-  background-size: cover;
-}
-div[data-type="grass"] {
-  background: url(block/img_grass.jpg) center center no-repeat;
-  background-size: cover;
-}
-div[data-type="stone"] {
-  background: url(block/img_stone.jpg) center center no-repeat;
-  background-size: cover;
-}
-div[data-type="wood"] {
-  background: url(block/img_wood.jpg) center center no-repeat;
-  background-size: cover;
-} */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 .cont {
   height: 100vmin;
@@ -97,25 +26,108 @@ div[data-type="wood"] {
   display: grid;
   grid-template-columns: repeat(30, 1fr);
   grid-template-rows: repeat(20, 1fr);
+  background-color: #81a0ff;
+}
+.unit {
+  /* border: 1px solid black; */
+  min-height: fit-content;
+}
+.unit:hover {
+  border: 1px solid white;
 }
 .tools {
   height: 100%;
   width: 20%;
   border: 1px solid black;
 }
-.unit {
-  border: 1px solid black;
-  min-height: fit-content;
+.tool {
+  margin: auto;
+  /* width: 160px; */
+  height: 20%;
+  border: solid 1px white;
 }
-@media (max-width: 1000px) {
-  .grid {
-    width: 100%;
-  }
-  .cont {
-    flex-direction: column;
-  }
-  .tools {
-    height: 50%;
-    width: 100%;
-  }
+
+.tool:nth-child(1) {
+  background: url(block/tool_goldpick.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.tool:nth-child(2) {
+  background: url(block/tool_axe.jpg) center center no-repeat;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.tool:nth-child(3) {
+  background: url(block/tool_shovel.jpg) center center no-repeat;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+div[data-type="dirt"] {
+  background: url(block/img_dirt.jpg) center center no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+div[data-type="grass"] {
+  background: url(block/img_grass.jpg) center center no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+div[data-type="stone"] {
+  background: url(block/img_stone.jpg) center center no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+div[data-type="wood"] {
+  background: url(block/img_wood.jpg) center center no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+div[data-type="coal"] {
+  background: url(block/img_coal.jpg) center center no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+div[data-type="diamond"] {
+  background: url(block/img_diamond.jpg) center center no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+div[data-type="green"] {
+  background: url(block/img_green.jpg) center center no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+div[data-type="leaves"] {
+  background: url(block/img_leaves.png) center center no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+div[data-type="flower"] {
+  background: url(block/img_flower.png) center center no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+div[data-type="flower2"] {
+  background: url(block/img_flower2.png) center center no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+div[data-type="bush"] {
+  background: url(block/img_bush.png) center center no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
