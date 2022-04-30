@@ -166,7 +166,7 @@ function getCellRight(cell) {
 function addTrees(min, max) {
   let numOfTrees = getRandomInt(min, max);
   let treeSum = 0;
-  for (let x = 1; x <= gridColumns_X - 1; x++) {
+  for (let x = 2; x <= gridColumns_X - 2; x++) {
     let cell = getTopCellOnX(x);
     //set grass with exception of stone
     if (cell.getAttribute("data-type") !== "stone") {
@@ -192,7 +192,8 @@ function addTrees(min, max) {
             }
             let randomNum = getRandomInt(1, 5);
             for (let i = randomNum; i !== 0; i--) {
-              getTopCellOnXSky(x).setAttribute("data-type", "leaves");
+              if (getTopCellOnXSky(x))
+                getTopCellOnXSky(x).setAttribute("data-type", "leaves");
               getCellLeft(getTopCellOnX(x)).setAttribute("data-type", "leaves");
               getCellRight(getTopCellOnX(x)).setAttribute(
                 "data-type",
