@@ -1,9 +1,23 @@
+let inventoryCont = document.querySelector(".inventory");
+let pick = document.querySelectorAll(".tool")[0];
+let axe = document.querySelectorAll(".tool")[1];
+let shovel = document.querySelectorAll(".tool")[2];
+let activeTool = "pick";
+let godActive = false;
+let arrOfBlock = [
+  "stone",
+  "dirt",
+  "grass",
+  "leaves",
+  "diamond",
+  "coal",
+  "flower",
+  "flower2",
+  "wood",
+  "green",
+  "bush",
+];
 export function tools() {
-  let inventoryCont = document.querySelector(".inventory");
-  let pick = document.querySelectorAll(".tool")[0];
-  let axe = document.querySelectorAll(".tool")[1];
-  let shovel = document.querySelectorAll(".tool")[2];
-  let activeTool = "pick";
   let objTools = {
     pick: {
       stone: true,
@@ -29,6 +43,19 @@ export function tools() {
       leaves: true,
       dirt: true,
       grass: true,
+    },
+    god: {
+      stone: true,
+      diamond: true,
+      coal: true,
+      green: true,
+      flower: true,
+      flower2: true,
+      bush: true,
+      dirt: true,
+      grass: true,
+      wood: true,
+      leaves: true,
     },
   };
   let inventory = {
@@ -116,20 +143,9 @@ export function tools() {
     });
     shovel.classList.add("active");
   });
-  let arrOfBlock = [
-    "stone",
-    "dirt",
-    "grass",
-    "leaves",
-    "diamond",
-    "coal",
-    "flower",
-    "flower2",
-    "wood",
-    "green",
-    "bush",
-  ];
+
   function cellOnClick() {
+    console.log(godActive);
     let cell = document.querySelectorAll(".unit");
     cell.forEach((element) => {
       element.addEventListener("click", function (event) {
@@ -140,13 +156,109 @@ export function tools() {
             inventory.remove(activeTool);
           }
         } else if (objTools[activeTool][typeofBlock] !== undefined)
-          if (objTools[activeTool][typeofBlock]) {
+          if (objTools[activeTool][typeofBlock] && blockIsOnTop(event.target)) {
             inventory.add(typeofBlock);
-            console.log(typeofBlock);
             event.target.removeAttribute("data-type");
           }
       });
     });
   }
   cellOnClick();
+  btns();
+  function btns() {
+    let creative = document.querySelector(".btn2");
+    creative.addEventListener("click", function (event) {
+      if (!godActive) {
+        //add infi block
+        //addevent to go back
+        activeTool = "god";
+        pick.style.display = "none";
+        shovel.style.display = "none";
+        axe.style.display = "none";
+        let god = document.createElement("div");
+        god.classList.add("sword");
+        god.style.background;
+        let btns = document.querySelector(".btns");
+        btns.appendChild(god);
+        godActive = true;
+        //allow to destroy any tile
+        let cell = document.querySelectorAll(".unit");
+        cell.forEach((element) => {
+          element.addEventListener("click", function (event) {
+            let typeofBlock = event.target.getAttribute("data-type");
+            console.log(typeofBlock);
+            if (typeofBlock !== null) {
+              if (arrOfBlock.includes(activeTool)) {
+                if (typeofBlock === null) {
+                  event.target.setAttribute("data-type", activeTool);
+                  inventory.remove(activeTool);
+                }
+              } else {
+                inventory.add(typeofBlock);
+                event.target.removeAttribute("data-type");
+              }
+            }
+          });
+        });
+        for (let i = 0; i < 200; i++) {
+          for (let j = 0; j < arrOfBlock.length; j++) {
+            inventory.add(arrOfBlock[j]);
+          }
+        }
+      }
+    });
+  }
+}
+console.log(godActive);
+//todo classic.addEventListener
+
+function blockIsOnTop(item) {
+  let itemY = item.getAttribute("data-y");
+  let itemX = item.getAttribute("data-x");
+  let index = item.getAttribute("data-index");
+  let res = getTopCellOnX(itemX);
+  let left = getCellLeft(item);
+  let right = getCellRight(item);
+  let cellAbove = document.querySelector(
+    `[data-index="${parseInt(index) + 30}"]`
+  );
+  let cellBelow = document.querySelector(
+    `[data-index="${parseInt(index) - 30}"]`
+  );
+
+  if (
+    res.getAttribute("data-y") !== itemY &&
+    cellAbove.getAttribute("data-type") !== null &&
+    cellBelow.getAttribute("data-type") !== null &&
+    left.getAttribute("data-type") !== null &&
+    right.getAttribute("data-type") !== null
+  ) {
+    return false;
+  }
+  return true;
+}
+function getTopCellOnX(X) {
+  let column = document.querySelectorAll(`[data-x="${X}"]`);
+  for (let i = 0; i < column.length; i++) {
+    if (
+      column[i].getAttribute("data-type") !== null &&
+      column[i].getAttribute("data-type") !== "leaves"
+    ) {
+      return column[i];
+    }
+  }
+}
+function getTopCellOnXSky(X) {
+  let column = document.querySelectorAll(`[data-x="${X}"]`);
+  for (let i = 0; i < column.length; i++) {
+    if (column[i].getAttribute("data-type") !== null) {
+      return column[i - 1];
+    }
+  }
+}
+function getCellRight(cell) {
+  return cell.nextSibling;
+}
+function getCellLeft(cell) {
+  return cell.previousSibling;
 }
