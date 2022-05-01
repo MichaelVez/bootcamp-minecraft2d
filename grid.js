@@ -1,9 +1,7 @@
 let gridColumns_X = 30;
 let gridRows_Y = 20;
 let totalCells = gridColumns_X * gridRows_Y;
-let cont = document.querySelector(".cont");
 let grid = document.querySelector(".grid");
-let tools = document.querySelector(".tools"); //todo different file.
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
@@ -57,6 +55,7 @@ export function crateLand() {
   addOnTop("flower", 1, 3);
   addOnTop("flower2", 1, 3);
 }
+
 export function renderBlock(
   dirtHeight,
   typeOfBlock,

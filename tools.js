@@ -1,4 +1,3 @@
-let inventoryCont = document.querySelector(".inventory");
 let pick = document.querySelectorAll(".tool")[0];
 let axe = document.querySelectorAll(".tool")[1];
 let shovel = document.querySelectorAll(".tool")[2];
@@ -108,8 +107,6 @@ export function tools() {
           element.classList.remove("active");
         });
         let itemPoint = document.querySelector(`.inv-${obj}`);
-        // itemPoint.style.display = "none";
-        let itemCon = document.querySelector(".inventory");
         itemPoint.parentElement.remove();
         activeTool = "pick";
         pick.classList.add("active");
@@ -145,7 +142,6 @@ export function tools() {
   });
 
   function cellOnClick() {
-    console.log(godActive);
     let cell = document.querySelectorAll(".unit");
     cell.forEach((element) => {
       element.addEventListener("click", function (event) {
@@ -169,12 +165,12 @@ export function tools() {
     let creative = document.querySelector(".btn2");
     creative.addEventListener("click", function (event) {
       if (!godActive) {
-        //add infi block
-        //addevent to go back
         activeTool = "god";
         pick.style.display = "none";
         shovel.style.display = "none";
         axe.style.display = "none";
+        document.querySelector(".inventory").style.height = "50%";
+        document.querySelector(".btns").style.height = "50%";
         let god = document.createElement("div");
         god.classList.add("sword");
         god.style.background;
@@ -186,7 +182,6 @@ export function tools() {
         cell.forEach((element) => {
           element.addEventListener("click", function (event) {
             let typeofBlock = event.target.getAttribute("data-type");
-            console.log(typeofBlock);
             if (typeofBlock !== null) {
               if (arrOfBlock.includes(activeTool)) {
                 if (typeofBlock === null) {
@@ -209,8 +204,6 @@ export function tools() {
     });
   }
 }
-console.log(godActive);
-//todo classic.addEventListener
 
 function blockIsOnTop(item) {
   let itemY = item.getAttribute("data-y");
@@ -225,7 +218,7 @@ function blockIsOnTop(item) {
   let cellBelow = document.querySelector(
     `[data-index="${parseInt(index) - 30}"]`
   );
-
+  //reading null
   if (
     res.getAttribute("data-y") !== itemY &&
     cellAbove.getAttribute("data-type") !== null &&

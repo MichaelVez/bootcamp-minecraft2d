@@ -12,7 +12,8 @@
 .splash {
   width: 100vw;
   height: 100vh;
-  background: url("https://wallpaperaccess.com/full/2532392.jpg") center center;
+  background: url("https://wallpaperaccess.com/full/2532392.jpg") center center
+    no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,10 +32,9 @@
   display: grid;
   grid-template-columns: repeat(30, 1fr);
   grid-template-rows: repeat(20, 1fr);
-  background-color: #81a0ff;
+  /* background-color: #81a0ff; */
 }
 .unit {
-  /* border: 1px solid black; */
   min-height: fit-content;
 }
 .unit:hover {
@@ -42,13 +42,16 @@
 }
 .tools {
   height: 100%;
-  width: 20%;
+  width: 40%;
+  background-color: #393e46;
 }
 .tool {
   margin: auto;
   width: 160px;
   height: 20%;
-  border: solid 1px white;
+  border: solid 5px #222831;
+  border-radius: 10px;
+  margin: auto;
 }
 
 .tool:nth-child(1) {
@@ -160,19 +163,20 @@ div[data-type="bush"] {
   flex-direction: row;
   width: 100%;
   height: 20%;
-  border: solid 1px;
   justify-content: center;
   align-items: center;
 }
 .btn {
-  padding: 10px;
+  padding: 10%;
   margin: 5px;
-  border: 1px solid black;
   text-align: center;
   cursor: pointer;
+  font-size: 30px;
+  color: #eeeeee;
 }
 .active {
-  border: 3px solid gold;
+  border: 10px solid #00adb5;
+  border-radius: 10px;
 }
 .itemCount {
   display: flex;
@@ -193,4 +197,13 @@ div[data-type="bush"] {
 .on {
   border-color: #81a0ff;
   font-weight: 700;
+}
+#radial-gradient {
+  background-image: linear-gradient(
+    #81a0ff,
+    #81a0ff,
+    #42c2ff,
+    #b8fff9,
+    #effffd
+  );
 }
