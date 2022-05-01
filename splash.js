@@ -23,7 +23,7 @@ export function crateSplashScreen() {
     howToPlay.style.color = "#06113C";
     howToPlay.style.backgroundColor = "#30AADD";
     howToPlay.textContent =
-      "MineCraft is a 2D sandbox game, press Start and begin creativeness greatness . By Michael Vezdenev";
+      "MineCraft is a 2D sandbox game, press Start and begin creativeness greatness . By Michael Vezdenev git@MichaelVez";
   });
   startBtn.addEventListener("click", function () {
     cont.style.display = "flex";
